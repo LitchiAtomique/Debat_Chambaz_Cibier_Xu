@@ -20,7 +20,15 @@ abstract public class ChoiceMenu extends Menu {
     this.functions.add(function);
   }
 
-  void run(Scanner scanner) {
+  void run() throws Exception {
+    // error handling
+    if (scanner == null)
+      throw new Exception("Invalid scanner");
+    if (prompt == null)
+      throw new Exception("Invalid prompt");
+    if (functions.size() == 0)
+      throw new Exception("Invalid functions");
+
     System.out.println(this.prompt);
     while (this.running) {
       String[] choices_arr = new String[choices.size()];
@@ -28,7 +36,7 @@ abstract public class ChoiceMenu extends Menu {
         choices_arr[i] = choices.get(i);
       }
       int choice = IO.ioGetChoice(
-          scanner,
+          this.scanner,
           this.prompt,
           choices_arr);
 
