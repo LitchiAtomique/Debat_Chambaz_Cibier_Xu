@@ -1,16 +1,25 @@
 package up.mi.Debat_Chambaz_Cibier_Xu;
 
-import java.util.Scanner;
-
+/**
+ * Class for a single menu
+ * A single menu is used to query user for a single
+ * question and recieve a result
+ * The answer is then passed to a value
+ */
 public class SingleMenu extends Menu {
-  int value;
-  Runnable function;
+  private Runnable function;
 
-  void addFunction(Runnable function) {
+  public SingleMenu() {
+    this.prompt = null;
+    this.scanner = null;
+    this.function = null;
+  }
+
+  public void addFunction(Runnable function) {
     this.function = function;
   }
 
-  void run() throws Exception {
+  public void run() throws Exception {
     // error handling
     if (scanner == null)
       throw new Exception("Invalid scanner");
@@ -19,9 +28,5 @@ public class SingleMenu extends Menu {
     if (function == null)
       throw new Exception("Invalid function");
     function.run();
-  }
-
-  int getValue() {
-    return this.value;
   }
 }

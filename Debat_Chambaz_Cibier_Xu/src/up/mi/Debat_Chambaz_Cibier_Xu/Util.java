@@ -1,5 +1,8 @@
 package up.mi.Debat_Chambaz_Cibier_Xu;
 
+/**
+ * Collection of helper functions
+ */
 public class Util {
   /**
    * Trims whitespace before and after a string

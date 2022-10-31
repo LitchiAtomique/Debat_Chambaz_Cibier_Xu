@@ -35,7 +35,7 @@ public class IO {
    * @param choices Varargs of choices to display to io
    * @return An int between 0 and choices.length -1
    */
-public static int ioGetChoice(Scanner scanner, String prompt, String ... choices) {
+  public static int ioGetChoice(Scanner scanner, String prompt, String ... choices) {
     while (true) {
       for (int i = 0; i < choices.length; i++) {
         System.out.println((i + 1) + ". " + choices[i]);
