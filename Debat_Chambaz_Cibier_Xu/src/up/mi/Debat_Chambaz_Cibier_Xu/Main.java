@@ -3,7 +3,7 @@ package up.mi.Debat_Chambaz_Cibier_Xu;
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
+  public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 
     NumberArgMenu numberArgMenu =  new NumberArgMenu();
@@ -46,5 +46,5 @@ public class Main {
       System.out.println(e);
       return;
     }
-	}
+  }
 }
