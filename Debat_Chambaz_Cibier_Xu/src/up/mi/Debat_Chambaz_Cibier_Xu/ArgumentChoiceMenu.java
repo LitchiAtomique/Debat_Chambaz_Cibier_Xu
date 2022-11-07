@@ -6,9 +6,9 @@ package up.mi.Debat_Chambaz_Cibier_Xu;
 public class ArgumentChoiceMenu extends ChoiceMenu {
   /**
    * Adds an argument to the list of arguments
+   * @param size Number of valid arguments in the arguments
    */
   public void argumentAdd() {
-    System.out.println("Ajout d'argument");
   }
 
   /**

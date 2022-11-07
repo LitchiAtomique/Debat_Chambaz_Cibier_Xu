@@ -47,4 +47,75 @@ public class IO {
       System.out.println("Erreur, entrez un nombre entre 1 et " + choices.length);
     }
   }
+
+  public static int[] ioGetArgs(Scanner scanner, String prompt, int size) {
+    while (true) {
+      // NOTE format of input is \s*A1\s*A2\s* and has to be trimmed correctly
+      System.out.print(prompt + ": ");
+      String answerStr = scanner.nextLine();
+
+      // trim
+      answerStr = Util.trim(answerStr);
+
+      // split arguments
+      String[] argsStr = Util.split(answerStr, ' ');
+
+      // check at least two arguments
+      if (argsStr.length < 2) {
+        System.out.println("Erreur, pas assez d'arguments");
+        continue;
+      }
+      
+      // check no non empty extra arguments
+      boolean emptyMiddle = true;
+      for (int i = 1; i < argsStr.length - 1; i++) {
+        if (argsStr[i].length() != 0) {
+          emptyMiddle = false;
+        }
+      }
+      if (!emptyMiddle) {
+        System.out.println("Error, too many arguements");
+        continue;
+      }
+
+      // parse arg 1
+      int[] args = new int[2];
+
+      try {
+        args[0] = Util.parseArgIndex(argsStr[0]);
+      } catch (Exception e) {
+        System.out.println("Error, could not parse argument"); 
+        System.out.println(e);
+        continue;
+      }
+
+      // check in range
+      if (args[0] < 1 || args[0] > size) {
+        System.out.println("Error, argument not in range");
+        continue;
+      }
+
+      // parse arg 2
+      try {
+        args[1] = Util.parseArgIndex(argsStr[argsStr.length - 1]);
+      } catch (Exception e) {
+        System.out.println("Error, could not parse argument"); 
+        System.out.println(e);
+        continue;
+      }
+
+      // check in range
+      if (args[1] < 1 || args[1] > size) {
+        System.out.println("Error, argument not in range");
+        continue;
+      }
+
+      if (args[0] == args[1]) {
+        System.out.println("Erreur, l'argument et la contradiction sont identique");
+        continue;
+      }
+
+      return args;
+    }
+  }
 }

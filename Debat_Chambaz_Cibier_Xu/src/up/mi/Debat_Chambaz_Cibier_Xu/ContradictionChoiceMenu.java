@@ -7,7 +7,7 @@ public class ContradictionChoiceMenu extends ChoiceMenu {
   /**
    * Adds a contradiction
    */
-  public void contradictionAdd() {
-    System.out.println("Ajout de contradiction");
+  public void contradictionAdd(int size) {
+    int args[] = IO.ioGetArgs(this.scanner, "Entrer la liste des arguments (A{n1} A{n2})", size);
   }
 }

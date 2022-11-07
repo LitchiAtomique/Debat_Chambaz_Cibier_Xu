@@ -4,6 +4,71 @@ import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
+
+    // int numberArguments = 4;
+    // Arguments arguments = new Arguments(numberArguments);
+    // try {
+    //   arguments.addContradiction(0, new Contradiction(1));
+    // } catch (Exception e) {
+    //   System.out.println(e);
+    //   return;
+    // }
+    // try {
+    //   arguments.addContradiction(1, new Contradiction(2));
+    // } catch (Exception e) {
+    //   System.out.println(e);
+    //   return;
+    // }
+    // try {
+    //   arguments.addContradiction(1, new Contradiction(3));
+    // } catch(Exception e) {
+    //   System.out.println(e);
+    //   return;
+    // }
+
+    // System.out.println("done");
+
+    // Arguments solution = new Arguments();
+
+    // try {
+    //   solution.add(arguments.getArgument(0));
+    // } catch (Exception e) {
+    //   System.out.println(e);
+    //   return;
+    // }
+
+    // try {
+    //   solution.add(arguments.getArgument(1));
+    // } catch (Exception e) {
+    //   System.out.println(e);
+    //   return;
+    // }
+
+    // try {
+    //   solution.add(arguments.getArgument(2));
+    // } catch (Exception e) {
+    //   System.out.println(e);
+    //   return;
+    // }
+
+    // try {
+    //   solution.add(arguments.getArgument(3));
+    // } catch (Exception e) {
+    //   System.out.println(e);
+    //   return;
+    // }
+
+    // System.out.println("add done");
+
+    // try {
+    //   solution.del(4);
+    // } catch (Exception e) {
+    //   System.out.println(e);
+    //   return;
+    // }
+
+    // System.out.println(solution.check());
+
     Scanner scanner = new Scanner(System.in);
 
     NumberArgMenu numberArgMenu =  new NumberArgMenu();
@@ -18,11 +83,12 @@ public class Main {
       return;
     }
     int numberArguments = numberArgMenu.getValue();
+    Arguments arguments = new Arguments(numberArguments);
 
     ContradictionChoiceMenu contradictionChoiceMenu = new ContradictionChoiceMenu();
     contradictionChoiceMenu.addScanner(scanner);
     contradictionChoiceMenu.addPrompt("Sélectionner un choix");
-    contradictionChoiceMenu.addChoice("Ajouter une contradiction", () -> contradictionChoiceMenu.contradictionAdd());
+    contradictionChoiceMenu.addChoice("Ajouter une contradiction", () -> contradictionChoiceMenu.contradictionAdd(numberArguments));
     contradictionChoiceMenu.addChoice("Fin", () -> contradictionChoiceMenu.end());
 
     try {
