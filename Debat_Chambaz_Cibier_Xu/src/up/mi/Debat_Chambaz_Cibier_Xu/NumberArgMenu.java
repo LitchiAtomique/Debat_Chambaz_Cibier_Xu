@@ -4,10 +4,10 @@ package up.mi.Debat_Chambaz_Cibier_Xu;
  * Class for the number of argument menu
  */
 public class NumberArgMenu extends SingleMenu {
-  private int value; //the value
+  private int value;
 
   public NumberArgMenu() {
-    super(); //Appel le constructeur de la class SingleMenu
+    super();
     this.value = 0;
   }
   /**
