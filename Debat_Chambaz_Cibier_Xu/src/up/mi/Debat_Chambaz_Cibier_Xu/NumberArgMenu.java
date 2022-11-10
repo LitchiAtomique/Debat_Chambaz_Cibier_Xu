@@ -7,7 +7,7 @@ public class NumberArgMenu extends SingleMenu {
   private int value;
 
   public NumberArgMenu() {
-    super();
+    super(); //Appel le constructeur de la class SingleMenu
     this.value = 0;
   }
   /**
