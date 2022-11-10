@@ -19,4 +19,5 @@ public class ContradictionChoiceMenu extends ChoiceMenu {
     System.out.println("Contradiction ajoutée");
     System.out.println((args[0]-1)+", "+ (args[1]-1));
   }
+  //Bonjour
 }
