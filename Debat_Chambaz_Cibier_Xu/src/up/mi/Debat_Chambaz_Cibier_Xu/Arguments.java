@@ -9,6 +9,9 @@ import java.util.ArrayList;
 public class Arguments {
   private ArrayList<Argument> arguments;
 
+  /**
+   * Initializes the list of arguments
+   */
   public Arguments() {
     this.arguments = new ArrayList<Argument>();
   }
@@ -20,26 +23,57 @@ public class Arguments {
   public Arguments(int n) {
     this.arguments = new ArrayList<Argument>();
     for (int i = 0; i < n; i++) {
-      this.arguments.add(new Argument());
+      this.arguments.add(new Argument(i));
     }
   }
 
   /**
    * Adds a contradiction for an argument
-   * @param i The index of the argument to add a contradiction to
+   * @param id The index of the argument to add a contradiction to
    * @param contradiction The contradiction to add
    */
-  public void addContradiction(int i, Contradiction contradiction) throws Exception {
-    if (i < 0 || i >= this.arguments.size()) {
-      throw new Exception("Error, argument is not in list of argument");
+  public void addContradiction(int id, Contradiction contradiction) throws Exception {
+    int tId = -1;
+    for (int i = 0; i < this.arguments.size(); i++) {
+      if (this.arguments.get(i).getId() == id) {
+        tId = i;
+        break;
+      }
     }
-    if (contradiction.getContradicts() < 0 || contradiction.getContradicts() >= this.arguments.size()) {
+
+    if (tId == -1) {
+      throw new Exception("Error, argument is not in the list of arguments");
+    }
+
+    int cId = contradiction.getContradicts();
+    boolean contradictionPresent = false;
+    for (int i = 0; i < this.arguments.size(); i++) {
+      if (this.arguments.get(i).getId() == cId) {
+        contradictionPresent = true;
+        break;
+      }
+    }
+
+    if (!contradictionPresent) {
       throw new Exception("Error, contradiction makes reference to argument not in the list");
     }
-    if (i == contradiction.getContradicts()) {
+
+    if (cId == id) {
       throw new Exception("Error, argument and contradiction can not have reference the same arguement");
     }
-    this.arguments.get(i).addContradiction(contradiction);
+
+    this.arguments.get(tId).addContradiction(contradiction);
+
+    // if (i < 0 || i >= this.arguments.size()) {
+    //   throw new Exception("Error, argument is not in list of argument");
+    // }
+    // if (contradiction.getContradicts() < 0 || contradiction.getContradicts() >= this.arguments.size()) {
+    //   throw new Exception("Error, contradiction makes reference to argument not in the list");
+    // }
+    // if (i == contradiction.getContradicts()) {
+    //   throw new Exception("Error, argument and contradiction can not have reference the same arguement");
+    // }
+    // this.arguments.get(i).addContradiction(contradiction);
   }
 
   /**
@@ -82,11 +116,31 @@ public class Arguments {
   }
 
   /**
-   * Gets an argument from the arguments
+   * Gets an argument from its id
    * @param i Index of argument to get
    */
-  public Argument getArgument(int i) {
-    return this.arguments.get(i);
+  public Argument getArgument(int id) {
+    for (int i = 0; i < this.arguments.size(); i++) {
+      if (id == arguments.get(i).getId()) {
+        return this.arguments.get(i);
+      }
+    }
+    return null;
   }
 
+  public void print() {
+    for (int i = 0; i < this.arguments.size(); i++) {
+      Argument argument = this.arguments.get(i);
+      System.out.print(i);
+      // argument.print();
+      System.out.print(": [");
+      for (int j = 0; j < argument.getNumberContradictions(); j++) {
+        argument.getContradiction(j).print();
+        if (j < argument.getNumberContradictions() - 1) {
+          System.out.print(", ");
+        }
+      }
+      System.out.println("]");
+    }
+  }
 }

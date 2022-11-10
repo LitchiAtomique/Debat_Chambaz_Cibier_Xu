@@ -8,12 +8,14 @@ import java.util.ArrayList;
  * It represents a single index of an adjency list
  */
 public class Argument {
+  int id;
   private ArrayList<Contradiction> contradictions;
 
   /**
    * Initializes an argument
    */
-  public Argument() {
+  public Argument(int id) {
+    this.id = id;
     this.contradictions = new ArrayList<Contradiction>();
   }
 
@@ -22,6 +24,7 @@ public class Argument {
    * @param argument The argument to initialize from
    */
   public Argument(Argument argument) {
+    this.id = argument.getId();
     this.contradictions = argument.getContradictions();
   }
 
@@ -42,5 +45,13 @@ public class Argument {
 
   public int getNumberContradictions() {
     return this.contradictions.size();
+  }
+
+  public int getId() {
+    return this.id;
+  }
+
+  public void print() {
+    System.out.print(this.id);
   }
 }

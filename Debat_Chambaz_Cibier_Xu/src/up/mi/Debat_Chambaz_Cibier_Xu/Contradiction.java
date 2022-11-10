@@ -19,4 +19,8 @@ public class Contradiction {
     return this.contradicts;
   }
 
+  public void print() {
+    System.out.print(this.contradicts);
+  }
+
 }

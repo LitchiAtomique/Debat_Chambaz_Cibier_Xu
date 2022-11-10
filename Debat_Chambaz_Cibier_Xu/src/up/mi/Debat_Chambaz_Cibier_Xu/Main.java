@@ -98,18 +98,7 @@ public class Main {
       return;
     }
 
-    for (int i = 0; i < arguments.getNumberArguments(); i++) {
-      System.out.print("[" + i + "]: [");
-      Argument argument  = arguments.getArgument(i);
-      for (int j = 0; j < argument.getNumberContradictions(); j++) {
-        Contradiction contradiction = argument.getContradiction(j);
-        System.out.print(contradiction.getContradicts());
-        if (j < argument.getNumberContradictions() - 1) {
-          System.out.print(", ");
-        }
-      }
-      System.out.println("]");
-    }
+    arguments.print();
 
     ArgumentChoiceMenu argumentChoiceMenu = new ArgumentChoiceMenu();
     argumentChoiceMenu.addScanner(scanner);
