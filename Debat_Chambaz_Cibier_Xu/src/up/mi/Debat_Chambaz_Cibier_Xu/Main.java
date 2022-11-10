@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
-
+	//Bonjour
     // int numberArguments = 4;
     // Arguments arguments = new Arguments(numberArguments);
     // try {
