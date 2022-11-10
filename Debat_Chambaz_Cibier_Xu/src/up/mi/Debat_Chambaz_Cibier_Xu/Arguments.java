@@ -77,6 +77,10 @@ public class Arguments {
     return false;
   }
 
+  public int getNumberArguments() {
+    return this.arguments.size();
+  }
+
   /**
    * Gets an argument from the arguments
    * @param i Index of argument to get
