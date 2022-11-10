@@ -114,7 +114,6 @@ public class IO {
         System.out.println("Erreur, l'argument et la contradiction sont identique");
         continue;
       }
-
       return args;
     }
   }

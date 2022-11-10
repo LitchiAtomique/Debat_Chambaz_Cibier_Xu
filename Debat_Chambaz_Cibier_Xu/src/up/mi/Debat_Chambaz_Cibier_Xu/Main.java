@@ -88,7 +88,7 @@ public class Main {
     ContradictionChoiceMenu contradictionChoiceMenu = new ContradictionChoiceMenu();
     contradictionChoiceMenu.addScanner(scanner);
     contradictionChoiceMenu.addPrompt("Sélectionner un choix");
-    contradictionChoiceMenu.addChoice("Ajouter une contradiction", () -> contradictionChoiceMenu.contradictionAdd(numberArguments));
+    contradictionChoiceMenu.addChoice("Ajouter une contradiction", () -> contradictionChoiceMenu.contradictionAdd(numberArguments,arguments));
     contradictionChoiceMenu.addChoice("Fin", () -> contradictionChoiceMenu.end());
 
     try {
