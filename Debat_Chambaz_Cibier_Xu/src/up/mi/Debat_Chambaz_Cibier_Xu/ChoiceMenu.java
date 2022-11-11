@@ -39,6 +39,7 @@ abstract public class ChoiceMenu extends Menu {
 
   /**
    * Checks if a menu is correctly initialized
+   * @throws Exception menu is not fully initialized
    */
   private void check() throws Exception {
     if (scanner == null)

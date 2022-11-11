@@ -14,11 +14,16 @@ public class Contradiction {
 
   /**
    * Returns index that contradiction contradicts
+   * @return The contradicts value
    */
   public int getContradicts() {
     return this.contradicts;
   }
 
+  /**
+   * Create a string from the contradiction
+   * @return The string representation of the arguments
+   */
   public String toString() {
     return "A" + (this.contradicts + 1);
   }

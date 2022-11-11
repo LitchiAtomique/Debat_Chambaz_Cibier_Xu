@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * An argument is a logical argument and the list of all arguments
  * that it contradicts
- * It represents a single index of an adjency list
+ * It represents a single index of an adjacency list
  */
 public class Argument {
   int id;
@@ -13,6 +13,8 @@ public class Argument {
 
   /**
    * Initializes an argument
+   * @param id id of the parameter
+   * @return The generated argument
    */
   public Argument(int id) {
     this.id = id;
@@ -22,6 +24,7 @@ public class Argument {
   /**
    * Initalizes an argument from an already existing one
    * @param argument The argument to initialize from
+   * @return The generated argument
    */
   public Argument(Argument argument) {
     this.id = argument.getId();
@@ -30,6 +33,7 @@ public class Argument {
 
   /**
    * Adds a contradiction between two arguements
+   * @param contradiction The contradiction to add
    */
   public void addContradiction(Contradiction contradiction) {
     this.contradictions.add(contradiction);
@@ -43,6 +47,7 @@ public class Argument {
    
   /**
    * Get the contradiction of the index i
+   * @param i The index of the contradiction to get
    */
   public Contradiction getContradiction(int i) {
     return this.contradictions.get(i);
@@ -60,13 +65,16 @@ public class Argument {
     return this.id;
   }
   /**
-   * Get the String of an argument Ai (1<=i<=n).
+   * Create  a string from the arguments
+   * @return The string representation of arguments
    */
   public String toString() {
     return "A" + (this.id + 1);
   }
   /**
-   * Checks if this.argument contradicts with the argument arg.
+   * Checks if this argument contradicts with the argument arg.
+   * @param arg The argument to check if it contradicts with
+   * @return true if the argument contradicts the argument; false if not
    */
   public boolean contradicts(Argument arg) {
     for (Contradiction cont : this.getContradictions()) {

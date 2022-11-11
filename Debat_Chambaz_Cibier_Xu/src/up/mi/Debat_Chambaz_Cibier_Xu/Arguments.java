@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 /**
  * Container class for arguments
- * It is modeled after the adjency list
+ * It is modeled after the adjacency list
  */
 public class Arguments {
   private ArrayList<Argument> arguments;
 
   /**
    * Initializes the list of arguments
+   * @param arguments The arguments to create it from
+   * @return Initialized argument
    */
   public Arguments(Arguments arguments) {
     this.arguments = new ArrayList<Argument>();
@@ -22,6 +24,7 @@ public class Arguments {
   /**
    * Initializes the arguments with a number of arguments
    * @param n Number of arguments to create the list with
+   * @return Initialized argument
    */
   public Arguments(int n) {
     this.arguments = new ArrayList<Argument>();
@@ -78,7 +81,7 @@ public class Arguments {
 
   /**
    * Removes an argument from the list of arguments
-   * @param i Index to remove
+   * @param id Index to remove
    */
   public void del(int id) throws Exception {
     try {
@@ -92,22 +95,35 @@ public class Arguments {
     this.arguments.set(id, null);
   }
 
+  /**
+   * Get the argument list
+   * @return The argument list
+   */
   public ArrayList<Argument> getArguments() {
     return this.arguments;
   }
 
+  /**
+   * Get number of argument
+   * @return The number of argument
+   */
   public int getNumberArguments() {
     return this.arguments.size();
   }
 
   /**
    * Gets an argument from its id
-   * @param i Index of argument to get
+   * @param id Index of argument to get
+   * @return The argument that has the id
    */
   public Argument getArgument(int id) {
     return this.arguments.get(id);
   }
 
+  /**
+   * Create a string from the arguments
+   * @return The string representation of the arguments
+   */
   public String toString() {
     String out = "";
     out += "{\n";

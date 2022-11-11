@@ -6,6 +6,7 @@ package up.mi.Debat_Chambaz_Cibier_Xu;
 public class ContradictionChoiceMenu extends ChoiceMenu {
   /**
    * Adds a contradiction
+   * @param arguments The arguments that a contradiction will be added to
    */
   public void contradictionAdd(Arguments arguments) {
     int args[] = IO.ioGetArgs(this.scanner, "Entrer la liste des arguments (An Am)", arguments.getNumberArguments());
