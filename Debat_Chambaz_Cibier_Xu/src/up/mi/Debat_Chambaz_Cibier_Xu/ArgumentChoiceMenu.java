@@ -41,10 +41,6 @@ public class ArgumentChoiceMenu extends ChoiceMenu {
    */
   public void check(Arguments arguments, Arguments solution) {
     boolean noContradiction = true;
-    // in practice this is O(n^2) since it is O(n^2 * m) and since the graph is a tree m is always equals to 1 (each argument can only contradict one argument)
-    // transforming to adjency matrix requires O(n^2) so complexity is equivalent
-    // finally this is just a complete lookup of the matrix
-    // TODO: find a better solution is definite O(n^2) or O(nlog(n))
     for (Argument arg : solution.getArguments()) {
       for (Argument other : solution.getArguments()) {
         if (other.contradicts(arg)) {
@@ -53,14 +49,21 @@ public class ArgumentChoiceMenu extends ChoiceMenu {
         }
       }
     }
-    // this is terrible since it is O(n^3)
-    // TODO: find a better solution - this could mean changing data structures
     boolean defence = true;
     for (Argument arg : solution.getArguments()) {
+      if (arg == null) {
+        continue;
+      }
       for (Argument other : arguments.getArguments()) {
+        if (other == null) {
+          continue;
+        }
         if (other.contradicts(arg)) {
           boolean isContradictContradicted = false;
           for (Argument otherContradict : solution.getArguments()) {
+            if (otherContradict == null) {
+              continue;
+            }
             if (otherContradict.contradicts(other)) {
               isContradictContradicted = true;
               break;
@@ -73,9 +76,6 @@ public class ArgumentChoiceMenu extends ChoiceMenu {
         }
       }
     }
-    // System.out.println("No Contradiction: " + noContradiction);
-    // System.out.println("Defence: " + defence);
-    // System.out.println("Result: " + (noContradiction && defence));
     if (noContradiction && defence) {
       System.out.println("This set of solution is admissible");
     } else {

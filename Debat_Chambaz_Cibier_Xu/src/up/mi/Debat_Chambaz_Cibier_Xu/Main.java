@@ -4,70 +4,6 @@ import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
-	  
-    // int numberArguments = 4;
-    // Arguments arguments = new Arguments(numberArguments);
-    // try {
-    //   arguments.addContradiction(0, new Contradiction(1));
-    // } catch (Exception e) {
-    //   System.out.println(e);
-    //   return;
-    // }
-    // try {
-    //   arguments.addContradiction(1, new Contradiction(2));
-    // } catch (Exception e) {
-    //   System.out.println(e);
-    //   return;
-    // }
-    // try {
-    //   arguments.addContradiction(1, new Contradiction(3));
-    // } catch(Exception e) {
-    //   System.out.println(e);
-    //   return;
-    // }
-
-    // System.out.println("done");
-
-    // Arguments solution = new Arguments();
-
-    // try {
-    //   solution.add(arguments.getArgument(0));
-    // } catch (Exception e) {
-    //   System.out.println(e);
-    //   return;
-    // }
-
-    // try {
-    //   solution.add(arguments.getArgument(1));
-    // } catch (Exception e) {
-    //   System.out.println(e);
-    //   return;
-    // }
-
-    // try {
-    //   solution.add(arguments.getArgument(2));
-    // } catch (Exception e) {
-    //   System.out.println(e);
-    //   return;
-    // }
-
-    // try {
-    //   solution.add(arguments.getArgument(3));
-    // } catch (Exception e) {
-    //   System.out.println(e);
-    //   return;
-    // }
-
-    // System.out.println("add done");
-
-    // try {
-    //   solution.del(4);
-    // } catch (Exception e) {
-    //   System.out.println(e);
-    //   return;
-    // }
-
-    // System.out.println(solution.check());
 
     Scanner scanner = new Scanner(System.in);
 
@@ -102,7 +38,7 @@ public class Main {
 
     System.out.print(arguments);
 
-    Arguments solution = new Arguments();
+    Arguments solution = new Arguments(numberArguments);
 
     ArgumentChoiceMenu argumentChoiceMenu = new ArgumentChoiceMenu();
     argumentChoiceMenu.addScanner(scanner);
