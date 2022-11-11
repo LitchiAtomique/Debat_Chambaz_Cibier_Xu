@@ -4,21 +4,27 @@ import java.util.ArrayList;
 
 /**
  * Container class for arguments
- * It is modeled after the adjency list
+ * It is modeled after the adjacency list
  */
 public class Arguments {
   private ArrayList<Argument> arguments;
 
   /**
    * Initializes the list of arguments
+   * @param arguments The arguments to create it from
+   * @return Initialized argument
    */
   public Arguments(Arguments arguments) {
-    this.arguments = new ArrayList<Argument>(arguments.getNumberArguments());
+    this.arguments = new ArrayList<Argument>();
+    for (int i = 0; i < arguments.getNumberArguments(); i++) {
+      this.arguments.add(null);
+    }
   }
 
   /**
    * Initializes the arguments with a number of arguments
    * @param n Number of arguments to create the list with
+   * @return Initialized argument
    */
   public Arguments(int n) {
     this.arguments = new ArrayList<Argument>();
@@ -43,7 +49,7 @@ public class Arguments {
 
     try {
       if (this.arguments.get(contradiction.getContradicts()) == null) {
-      throw new Exception("Error, contradiction makes reference to argument not in the list");
+        throw new Exception("Error, contradiction makes reference to argument not in the list");
       }
     } catch (Exception e) {
       throw new Exception("Error, contradiction makes reference to argument out of the list");
@@ -75,7 +81,7 @@ public class Arguments {
 
   /**
    * Removes an argument from the list of arguments
-   * @param i Index to remove
+   * @param id Index to remove
    */
   public void del(int id) throws Exception {
     try {
@@ -89,29 +95,40 @@ public class Arguments {
     this.arguments.set(id, null);
   }
 
+  /**
+   * Get the argument list
+   * @return The argument list
+   */
   public ArrayList<Argument> getArguments() {
     return this.arguments;
   }
 
+  /**
+   * Get number of argument
+   * @return The number of argument
+   */
   public int getNumberArguments() {
     return this.arguments.size();
   }
 
   /**
    * Gets an argument from its id
-   * @param i Index of argument to get
+   * @param id Index of argument to get
+   * @return The argument that has the id
    */
   public Argument getArgument(int id) {
     return this.arguments.get(id);
   }
 
+  /**
+   * Create a string from the arguments
+   * @return The string representation of the arguments
+   */
   public String toString() {
-    System.out.println("Printing");
     String out = "";
     out += "{\n";
     for (int i = 0; i < this.arguments.size(); i++) {
       Argument argument = this.arguments.get(i);
-      System.out.println("arg: " + argument);
       if (argument == null) {
         continue;
       }

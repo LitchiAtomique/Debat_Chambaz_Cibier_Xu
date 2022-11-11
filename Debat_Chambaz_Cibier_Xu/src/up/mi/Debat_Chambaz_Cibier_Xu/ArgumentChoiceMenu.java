@@ -26,6 +26,7 @@ public class ArgumentChoiceMenu extends ChoiceMenu {
 
   /**
    * Deletes an argument from the list of arguments
+   * @param arguments The arguments in which to delete an argument
    */
   public void argumentDel(Arguments arguments) {
     System.out.print(arguments);
@@ -41,6 +42,8 @@ public class ArgumentChoiceMenu extends ChoiceMenu {
 
   /**
    * Checks the validity of a logical state
+   * @param arguments List of arguments
+   * @param solution Subset of arguments, the solution candidates
    */
   public void check(Arguments arguments, Arguments solution) {
     boolean noContradiction = true;
