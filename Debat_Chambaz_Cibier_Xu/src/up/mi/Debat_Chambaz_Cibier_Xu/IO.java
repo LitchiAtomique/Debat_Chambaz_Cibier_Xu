@@ -114,7 +114,7 @@ public class IO {
       try {
         args[0] = Util.parseArgIndex(argsStr[0]) - 1;
       } catch (Exception e) {
-        System.out.println("Error, could not parse argument"); 
+        System.out.println("Error, could not parse argument n°1"); 
         System.out.println(e);
         continue;
       }
@@ -123,7 +123,7 @@ public class IO {
       try {
         args[1] = Util.parseArgIndex(argsStr[argsStr.length - 1]) - 1;
       } catch (Exception e) {
-        System.out.println("Error, could not parse argument"); 
+        System.out.println("Error, could not parse argument n°2"); 
         System.out.println(e);
         continue;
       }
