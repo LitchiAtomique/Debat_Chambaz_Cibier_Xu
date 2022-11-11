@@ -102,12 +102,7 @@ public class Arguments {
    * @param i Index of argument to get
    */
   public Argument getArgument(int id) {
-    for (int i = 0; i < this.arguments.size(); i++) {
-      if (id == arguments.get(i).getId()) {
-        return this.arguments.get(i);
-      }
-    }
-    return null;
+    return this.arguments.get(id);
   }
 
   public String toString() {
