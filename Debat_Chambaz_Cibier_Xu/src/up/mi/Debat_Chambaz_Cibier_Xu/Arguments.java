@@ -89,13 +89,6 @@ public class Arguments {
     this.arguments.set(id, null);
   }
 
-  /**
-   * Checks the validity of a arguments
-   */
-  public boolean check() {
-    return false;
-  }
-
   public ArrayList<Argument> getArguments() {
     return this.arguments;
   }
