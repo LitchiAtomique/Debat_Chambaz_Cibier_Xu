@@ -38,7 +38,7 @@ public class Main {
 
     System.out.print(arguments);
 
-    Arguments solution = new Arguments(numberArguments);
+    Arguments solution = new Arguments(arguments);
 
     ArgumentChoiceMenu argumentChoiceMenu = new ArgumentChoiceMenu();
     argumentChoiceMenu.addScanner(scanner);

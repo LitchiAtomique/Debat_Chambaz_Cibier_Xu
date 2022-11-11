@@ -12,8 +12,8 @@ public class Arguments {
   /**
    * Initializes the list of arguments
    */
-  public Arguments() {
-    this.arguments = new ArrayList<Argument>();
+  public Arguments(Arguments arguments) {
+    this.arguments = new ArrayList<Argument>(arguments.getNumberArguments());
   }
 
   /**
@@ -67,12 +67,10 @@ public class Arguments {
    * @param argument Argument to add
    */
   public void add(Argument argument) throws Exception {
-    for (Argument arg : this.arguments) {
-      if (arg.equals(argument)) {
+    if (this.arguments.get(argument.getId()) != null) {
         throw new Exception("Error, argument already present in the solution");
-      }
     }
-    this.arguments.add(argument.getId(), argument);
+    this.arguments.set(argument.getId(), argument);
   }
 
   /**
@@ -122,15 +120,14 @@ public class Arguments {
     }
     return null;
   }
-  /**
-   * Returns to string all arguments of the graph.
-   */
+
   public String toString() {
     System.out.println("Printing");
     String out = "";
     out += "{\n";
     for (int i = 0; i < this.arguments.size(); i++) {
       Argument argument = this.arguments.get(i);
+      System.out.println(argument);
       if (argument == null) {
         continue;
       }
