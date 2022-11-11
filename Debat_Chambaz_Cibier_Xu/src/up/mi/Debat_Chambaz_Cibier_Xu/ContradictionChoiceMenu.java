@@ -7,14 +7,14 @@ public class ContradictionChoiceMenu extends ChoiceMenu {
   /**
    * Adds a contradiction
    */
-  public void contradictionAdd(int size, Arguments arguments) {
-    int args[] = IO.ioGetArgs(this.scanner, "Entrer la liste des arguments (A{n1} A{n2})", size);
+  public void contradictionAdd(Arguments arguments) {
+    int args[] = IO.ioGetArgs(this.scanner, "Entrer la liste des arguments (An Am)", arguments.getNumberArguments());
     try {
-    	arguments.addContradiction(args[0] - 1, new Contradiction(args[1] - 1));
+    	arguments.addContradiction(args[0], new Contradiction(args[1]));
     }catch (Exception e) {
         System.out.println(e.getMessage());
         return;
     }
-    System.out.println("Added contradiction: A" + args[0] + " to A" + args[1]);
+    System.out.print(arguments);
   }
 }

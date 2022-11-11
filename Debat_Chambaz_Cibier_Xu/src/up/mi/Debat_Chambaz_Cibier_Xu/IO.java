@@ -48,6 +48,26 @@ public class IO {
     }
   }
 
+  public static int ioGetArg(Scanner scanner, String prompt) {
+    while (true) {
+      System.out.print(prompt + ": ");
+      String answerStr = scanner.nextLine();
+
+      answerStr = Util.trim(answerStr);
+
+      int arg = 0;
+      try {
+        arg = Util.parseArgIndex(answerStr) - 1;
+      } catch (Exception e) {
+        System.out.println("Error, could not parse argument"); 
+        System.out.println(e);
+        continue;
+      }
+
+      return arg;
+    }
+  }
+
   public static int[] ioGetArgs(Scanner scanner, String prompt, int size) {
     while (true) {
       // NOTE format of input is \s*A1\s*A2\s* and has to be trimmed correctly
@@ -82,31 +102,19 @@ public class IO {
       int[] args = new int[2];
 
       try {
-        args[0] = Util.parseArgIndex(argsStr[0]);
+        args[0] = Util.parseArgIndex(argsStr[0]) - 1;
       } catch (Exception e) {
         System.out.println("Error, could not parse argument"); 
         System.out.println(e);
-        continue;
-      }
-
-      // check in range
-      if (args[0] < 1 || args[0] > size) {
-        System.out.println("Error, argument not in range");
         continue;
       }
 
       // parse arg 2
       try {
-        args[1] = Util.parseArgIndex(argsStr[argsStr.length - 1]);
+        args[1] = Util.parseArgIndex(argsStr[argsStr.length - 1]) - 1;
       } catch (Exception e) {
         System.out.println("Error, could not parse argument"); 
         System.out.println(e);
-        continue;
-      }
-
-      // check in range
-      if (args[1] < 1 || args[1] > size) {
-        System.out.println("Error, argument not in range");
         continue;
       }
 

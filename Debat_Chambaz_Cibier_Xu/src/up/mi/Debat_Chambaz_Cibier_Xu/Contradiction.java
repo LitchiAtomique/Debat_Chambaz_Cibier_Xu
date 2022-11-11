@@ -19,8 +19,8 @@ public class Contradiction {
     return this.contradicts;
   }
 
-  public void print() {
-    System.out.print(this.contradicts);
+  public String toString() {
+    return "A" + (this.contradicts + 1);
   }
 
 }

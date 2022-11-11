@@ -85,10 +85,12 @@ public class Main {
     int numberArguments = numberArgMenu.getValue();
     Arguments arguments = new Arguments(numberArguments);
 
+    System.out.print(arguments);
+
     ContradictionChoiceMenu contradictionChoiceMenu = new ContradictionChoiceMenu();
     contradictionChoiceMenu.addScanner(scanner);
     contradictionChoiceMenu.addPrompt("Sélectionner un choix");
-    contradictionChoiceMenu.addChoice("Ajouter une contradiction", () -> contradictionChoiceMenu.contradictionAdd(numberArguments,arguments));
+    contradictionChoiceMenu.addChoice("Ajouter une contradiction", () -> contradictionChoiceMenu.contradictionAdd(arguments));
     contradictionChoiceMenu.addChoice("Fin", () -> contradictionChoiceMenu.end());
 
     try {
@@ -98,14 +100,16 @@ public class Main {
       return;
     }
 
-    arguments.print();
+    System.out.print(arguments);
+
+    Arguments solution = new Arguments();
 
     ArgumentChoiceMenu argumentChoiceMenu = new ArgumentChoiceMenu();
     argumentChoiceMenu.addScanner(scanner);
     argumentChoiceMenu.addPrompt("Sélectionner un choix");
-    argumentChoiceMenu.addChoice("Ajouter un argument", () -> argumentChoiceMenu.argumentAdd());
-    argumentChoiceMenu.addChoice("Retirer un argument", () -> argumentChoiceMenu.argumentDel());
-    argumentChoiceMenu.addChoice("Vérifier la solution", () -> argumentChoiceMenu.check());
+    argumentChoiceMenu.addChoice("Ajouter un argument", () -> argumentChoiceMenu.argumentAdd(arguments, solution));
+    argumentChoiceMenu.addChoice("Retirer un argument", () -> argumentChoiceMenu.argumentDel(solution));
+    argumentChoiceMenu.addChoice("Vérifier la solution", () -> argumentChoiceMenu.check(arguments, solution));
     argumentChoiceMenu.addChoice("Fin", () -> argumentChoiceMenu.end());
 
     try {

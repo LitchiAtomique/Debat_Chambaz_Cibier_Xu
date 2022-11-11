@@ -51,7 +51,16 @@ public class Argument {
     return this.id;
   }
 
-  public void print() {
-    System.out.print(this.id);
+  public String toString() {
+    return "A" + (this.id + 1);
+  }
+
+  public boolean contradicts(Argument arg) {
+    for (Contradiction cont : this.getContradictions()) {
+      if (cont.getContradicts() == arg.getId()) {
+        return true;
+      }
+    }
+    return false;
   }
 }

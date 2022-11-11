@@ -62,18 +62,13 @@ public class Arguments {
       throw new Exception("Error, argument and contradiction can not have reference the same arguement");
     }
 
-    this.arguments.get(tId).addContradiction(contradiction);
+    for (Contradiction cont: this.arguments.get(tId).getContradictions()) {
+      if (cont.getContradicts() == contradiction.getContradicts()) {
+        throw new Exception("Error, contradiction already present for this argument");
+      }
+    }
 
-    // if (i < 0 || i >= this.arguments.size()) {
-    //   throw new Exception("Error, argument is not in list of argument");
-    // }
-    // if (contradiction.getContradicts() < 0 || contradiction.getContradicts() >= this.arguments.size()) {
-    //   throw new Exception("Error, contradiction makes reference to argument not in the list");
-    // }
-    // if (i == contradiction.getContradicts()) {
-    //   throw new Exception("Error, argument and contradiction can not have reference the same arguement");
-    // }
-    // this.arguments.get(i).addContradiction(contradiction);
+    this.arguments.get(tId).addContradiction(contradiction);
   }
 
   /**
@@ -87,21 +82,26 @@ public class Arguments {
       }
     }
     this.arguments.add(argument);
-
   }
 
   /**
    * Removes an argument from the list of arguments
    * @param i Index to remove
    */
-  public void del(int i) throws Exception {
-    // TODO - Paul Chambaz - Needs a refactor so that argument have an proper id
-    // then the id for this deletion should be the actual id of the argument, not the index in the adjency list
-    if (i < 0 || i >= this.arguments.size()) {
-      throw new Exception("Error, argument is not in the list");
+  public void del(int id) throws Exception {
+    int tId = -1;
+    for (int i = 0; i < this.arguments.size(); i++) {
+      if (this.arguments.get(i).getId() == id) {
+        tId = i;
+        break;
+      }
     }
 
-    this.arguments.remove(i);
+    if (tId == -1) {
+      throw new Exception("Error, argument is not in the list of arguments");
+    }
+
+    this.arguments.remove(tId);
   }
 
   /**
@@ -109,6 +109,10 @@ public class Arguments {
    */
   public boolean check() {
     return false;
+  }
+
+  public ArrayList<Argument> getArguments() {
+    return this.arguments;
   }
 
   public int getNumberArguments() {
@@ -128,19 +132,21 @@ public class Arguments {
     return null;
   }
 
-  public void print() {
+  public String toString() {
+    String out = "";
+    out += "{\n";
     for (int i = 0; i < this.arguments.size(); i++) {
       Argument argument = this.arguments.get(i);
-      System.out.print(i);
-      // argument.print();
-      System.out.print(": [");
+      out += "  " + argument + ": [";
       for (int j = 0; j < argument.getNumberContradictions(); j++) {
-        argument.getContradiction(j).print();
+        out += argument.getContradiction(j);
         if (j < argument.getNumberContradictions() - 1) {
-          System.out.print(", ");
+          out += ", ";
         }
       }
-      System.out.println("]");
+      out += "]\n";
     }
+    out += "}\n";
+    return out;
   }
 }
