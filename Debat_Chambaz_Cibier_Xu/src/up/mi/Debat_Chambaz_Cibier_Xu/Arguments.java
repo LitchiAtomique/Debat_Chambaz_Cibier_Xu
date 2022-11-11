@@ -124,6 +124,7 @@ public class Arguments {
   }
 
   public String toString() {
+    System.out.println("Printing");
     String out = "";
     out += "{\n";
     for (int i = 0; i < this.arguments.size(); i++) {
