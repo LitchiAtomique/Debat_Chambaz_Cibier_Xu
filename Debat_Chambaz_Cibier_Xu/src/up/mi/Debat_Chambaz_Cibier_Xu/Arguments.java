@@ -78,19 +78,15 @@ public class Arguments {
    * @param i Index to remove
    */
   public void del(int id) throws Exception {
-    int tId = -1;
-    for (int i = 0; i < this.arguments.size(); i++) {
-      if (this.arguments.get(i).getId() == id) {
-        tId = i;
-        break;
+    try {
+      if (this.arguments.get(id) == null) {
+        throw new Exception("Error, argument is not in the list of arguments");
       }
+    } catch (Exception e) {
+      throw new Exception("Error, argument is out of the list of arguments");
     }
 
-    if (tId == -1) {
-      throw new Exception("Error, argument is not in the list of arguments");
-    }
-
-    this.arguments.set(tId, null);
+    this.arguments.set(id, null);
   }
 
   /**
