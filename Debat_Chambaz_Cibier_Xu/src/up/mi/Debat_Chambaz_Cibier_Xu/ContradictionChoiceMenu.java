@@ -9,7 +9,7 @@ public class ContradictionChoiceMenu extends ChoiceMenu {
    * @param arguments The arguments that a contradiction will be added to
    */
   public void contradictionAdd(Arguments arguments) {
-    int args[] = IO.ioGetArgs(this.scanner, "Entrer la liste des arguments (An Am)", arguments.getNumberArguments());
+    int args[] = IO.ioGetArgs(this.scanner, "Enter the two arguments (An Am)", arguments.getNumberArguments());
     try {
     	arguments.addContradiction(args[0], new Contradiction(args[1]));
     }catch (Exception e) {

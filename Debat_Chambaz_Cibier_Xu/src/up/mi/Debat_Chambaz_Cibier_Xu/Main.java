@@ -9,7 +9,7 @@ public class Main {
 
     NumberArgMenu numberArgMenu =  new NumberArgMenu();
     numberArgMenu.addScanner(scanner);
-    numberArgMenu.addPrompt("Entrer le nombre d'argument");
+    numberArgMenu.addPrompt("Enter number of arguments");
     numberArgMenu.addFunction(() -> numberArgMenu.GetInt());
 
     try {
@@ -26,9 +26,9 @@ public class Main {
 
     ContradictionChoiceMenu contradictionChoiceMenu = new ContradictionChoiceMenu();
     contradictionChoiceMenu.addScanner(scanner);
-    contradictionChoiceMenu.addPrompt("Sélectionner un choix");
-    contradictionChoiceMenu.addChoice("Ajouter une contradiction", () -> contradictionChoiceMenu.contradictionAdd(arguments));
-    contradictionChoiceMenu.addChoice("Fin", () -> contradictionChoiceMenu.end());
+    contradictionChoiceMenu.addPrompt("Select a choice");
+    contradictionChoiceMenu.addChoice("Add a contradiction", () -> contradictionChoiceMenu.contradictionAdd(arguments));
+    contradictionChoiceMenu.addChoice("End", () -> contradictionChoiceMenu.end());
 
     try {
       contradictionChoiceMenu.run();
@@ -44,11 +44,11 @@ public class Main {
 
     ArgumentChoiceMenu argumentChoiceMenu = new ArgumentChoiceMenu();
     argumentChoiceMenu.addScanner(scanner);
-    argumentChoiceMenu.addPrompt("Sélectionner un choix");
-    argumentChoiceMenu.addChoice("Ajouter un argument", () -> argumentChoiceMenu.argumentAdd(arguments, solution));
-    argumentChoiceMenu.addChoice("Retirer un argument", () -> argumentChoiceMenu.argumentDel(solution));
-    argumentChoiceMenu.addChoice("Vérifier la solution", () -> argumentChoiceMenu.check(arguments, solution));
-    argumentChoiceMenu.addChoice("Fin", () -> argumentChoiceMenu.end());
+    argumentChoiceMenu.addPrompt("Select a choice");
+    argumentChoiceMenu.addChoice("Add an argument", () -> argumentChoiceMenu.argumentAdd(arguments, solution));
+    argumentChoiceMenu.addChoice("Remove an argument", () -> argumentChoiceMenu.argumentDel(solution));
+    argumentChoiceMenu.addChoice("Check soltution", () -> argumentChoiceMenu.check(arguments, solution));
+    argumentChoiceMenu.addChoice("End", () -> argumentChoiceMenu.end());
 
     try {
       argumentChoiceMenu.run();

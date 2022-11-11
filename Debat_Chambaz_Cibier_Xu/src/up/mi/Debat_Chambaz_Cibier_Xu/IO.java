@@ -21,7 +21,7 @@ public class IO {
       try {
         answer = Integer.parseInt(answerStr);
       } catch (Exception e) {
-        System.out.println("Erreur, entrée invalide");
+        System.out.println("Error, invalid entry");
         continue;
       }
       return answer;
@@ -44,7 +44,7 @@ public class IO {
       if (choice >= 1 && choice <= choices.length) {
         return choice - 1;
       }
-      System.out.println("Erreur, entrez un nombre entre 1 et " + choices.length);
+      System.out.println("Error, enter a number between 1 and " + choices.length);
     }
   }
   /**
@@ -92,7 +92,7 @@ public class IO {
 
       // check at least two arguments
       if (argsStr.length < 2) {
-        System.out.println("Erreur, pas assez d'arguments");
+        System.out.println("Error, not enough arguments");
         continue;
       }
       
@@ -104,7 +104,7 @@ public class IO {
         }
       }
       if (!emptyMiddle) {
-        System.out.println("Error, too many arguements");
+        System.out.println("Error, not enough arguments");
         continue;
       }
 
@@ -129,7 +129,7 @@ public class IO {
       }
 
       if (args[0] == args[1]) {
-        System.out.println("Erreur, l'argument et la contradiction sont identique");
+        System.out.println("Error, the arguments and the contradiction are identical");
         continue;
       }
       return args;
