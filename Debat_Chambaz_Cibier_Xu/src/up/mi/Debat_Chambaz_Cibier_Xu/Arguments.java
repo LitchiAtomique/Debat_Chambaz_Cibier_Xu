@@ -46,7 +46,7 @@ public class Arguments {
 
     try {
       if (this.arguments.get(contradiction.getContradicts()) == null) {
-      throw new Exception("Error, contradiction makes reference to argument not in the list");
+        throw new Exception("Error, contradiction makes reference to argument not in the list");
       }
     } catch (Exception e) {
       throw new Exception("Error, contradiction makes reference to argument out of the list");
