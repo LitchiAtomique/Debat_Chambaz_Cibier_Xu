@@ -11,7 +11,7 @@ public class NumberArgMenu extends SingleMenu {
     this.value = 0;
   }
   /**
-   * Set Value from the IO.ioGetInt function
+   * Set Value from IO.ioGetInt function
    */
   public void setValueFromIO() {
     this.value = IO.ioGetInt(
