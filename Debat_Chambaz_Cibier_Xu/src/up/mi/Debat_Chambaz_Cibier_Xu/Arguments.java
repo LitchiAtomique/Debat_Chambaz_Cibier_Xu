@@ -13,7 +13,10 @@ public class Arguments {
    * Initializes the list of arguments
    */
   public Arguments(Arguments arguments) {
-    this.arguments = new ArrayList<Argument>(arguments.getNumberArguments());
+    this.arguments = new ArrayList<Argument>();
+    for (int i = 0; i < arguments.getNumberArguments(); i++) {
+      this.arguments.add(null);
+    }
   }
 
   /**
@@ -106,12 +109,10 @@ public class Arguments {
   }
 
   public String toString() {
-    System.out.println("Printing");
     String out = "";
     out += "{\n";
     for (int i = 0; i < this.arguments.size(); i++) {
       Argument argument = this.arguments.get(i);
-      System.out.println("arg: " + argument);
       if (argument == null) {
         continue;
       }
