@@ -12,12 +12,15 @@ public class ArgumentChoiceMenu extends ChoiceMenu {
   public void argumentAdd(Arguments source, Arguments dest) {
     System.out.print(source);
     int arg = IO.ioGetArg(this.scanner, "Enter argument to add (An)");
+    System.out.println("dest");
+    System.out.println(dest);
     try {
       dest.add(source.getArgument(arg));
     } catch (Exception e) {
       System.out.println(e.getMessage());
       return;
     }
+    System.out.println("test");
     System.out.print(dest);
   }
 

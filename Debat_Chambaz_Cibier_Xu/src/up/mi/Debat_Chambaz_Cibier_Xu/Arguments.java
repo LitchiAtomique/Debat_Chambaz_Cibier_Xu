@@ -111,7 +111,7 @@ public class Arguments {
     out += "{\n";
     for (int i = 0; i < this.arguments.size(); i++) {
       Argument argument = this.arguments.get(i);
-      System.out.println(argument);
+      System.out.println("arg: " + argument);
       if (argument == null) {
         continue;
       }

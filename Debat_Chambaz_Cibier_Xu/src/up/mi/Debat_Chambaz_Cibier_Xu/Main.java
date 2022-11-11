@@ -16,6 +16,7 @@ public class Main {
       numberArgMenu.run();
     } catch (Exception e) {
       System.out.println(e);
+      scanner.close();
       return;
     }
     int numberArguments = numberArgMenu.getValue();
@@ -33,6 +34,7 @@ public class Main {
       contradictionChoiceMenu.run();
     } catch (Exception e) {
       System.out.println(e);
+      scanner.close();
       return;
     }
 
@@ -52,7 +54,10 @@ public class Main {
       argumentChoiceMenu.run();
     } catch (Exception e) {
       System.out.println(e);
+      scanner.close();
       return;
     }
+
+    scanner.close();
   }
 }
