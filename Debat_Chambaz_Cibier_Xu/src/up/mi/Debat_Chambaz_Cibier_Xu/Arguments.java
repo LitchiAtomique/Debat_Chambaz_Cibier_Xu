@@ -38,7 +38,7 @@ public class Arguments {
         throw new Exception("Error, argument is not in the list of arguments");
       }
     } catch (Exception e) {
-      throw new Exception("Error, argument is not in the list of arguments");
+      throw new Exception("Error, argument is out of the list of arguments");
     }
 
     try {
@@ -46,7 +46,7 @@ public class Arguments {
       throw new Exception("Error, contradiction makes reference to argument not in the list");
       }
     } catch (Exception e) {
-      throw new Exception("Error, contradiction makes reference to argument not in the list");
+      throw new Exception("Error, contradiction makes reference to argument out of the list");
     }
 
     if (contradiction.getContradicts() == id) {
