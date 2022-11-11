@@ -108,9 +108,9 @@ public class IO {
         continue;
       }
 
-      // parse arg 1
+      
       int[] args = new int[2];
-
+   // parse arg 1
       try {
         args[0] = Util.parseArgIndex(argsStr[0]) - 1;
       } catch (Exception e) {
