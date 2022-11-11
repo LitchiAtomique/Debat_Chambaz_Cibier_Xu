@@ -34,27 +34,40 @@ public class Argument {
   public void addContradiction(Contradiction contradiction) {
     this.contradictions.add(contradiction);
   }
-
+  /**
+   * Get all contradictions of the argument
+   */
   public ArrayList<Contradiction> getContradictions() {
     return this.contradictions;
   }
-
+   
+  /**
+   * Get the contradiction of the index i
+   */
   public Contradiction getContradiction(int i) {
     return this.contradictions.get(i);
   }
-
+  /**
+   * Get the number of contradiction of the argument
+   */
   public int getNumberContradictions() {
     return this.contradictions.size();
   }
-
+  /**
+   * Get the id (index of the argument in the graph).
+   */
   public int getId() {
     return this.id;
   }
-
+  /**
+   * Get the String of an argument Ai (1<=i<=n).
+   */
   public String toString() {
     return "A" + (this.id + 1);
   }
-
+  /**
+   * Checks if this.argument contradicts with the argument arg.
+   */
   public boolean contradicts(Argument arg) {
     for (Contradiction cont : this.getContradictions()) {
       if (cont.getContradicts() == arg.getId()) {

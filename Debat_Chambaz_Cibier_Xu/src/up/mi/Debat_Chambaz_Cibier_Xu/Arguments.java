@@ -131,7 +131,9 @@ public class Arguments {
     }
     return null;
   }
-
+  /**
+   * Returns to string all arguments of the graph.
+   */
   public String toString() {
     String out = "";
     out += "{\n";

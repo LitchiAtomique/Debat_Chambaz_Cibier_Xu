@@ -47,7 +47,12 @@ public class IO {
       System.out.println("Erreur, entrez un nombre entre 1 et " + choices.length);
     }
   }
-
+  /**
+   * Queries io for an argument
+   * @param scanner Initialized scanner
+   * @param prompt Message to display to io
+   * @return An argument
+   */
   public static int ioGetArg(Scanner scanner, String prompt) {
     while (true) {
       System.out.print(prompt + ": ");
@@ -67,7 +72,12 @@ public class IO {
       return arg;
     }
   }
-
+  /**
+   * Queries io for a tab of argument (2 arguments)
+   * @param scanner Initialized scanner
+   * @param prompt Message to display to io
+   * @return A tab of argument (2arguments)
+   */
   public static int[] ioGetArgs(Scanner scanner, String prompt, int size) {
     while (true) {
       // NOTE format of input is \s*A1\s*A2\s* and has to be trimmed correctly
