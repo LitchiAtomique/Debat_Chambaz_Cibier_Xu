@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 abstract public class ChoiceMenu extends Menu {
 
-  private boolean running; 
+  private boolean running;
 
   private ArrayList<String> choices;
   private ArrayList<Runnable> functions;

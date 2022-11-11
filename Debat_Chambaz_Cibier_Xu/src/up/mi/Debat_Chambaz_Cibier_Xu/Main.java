@@ -10,7 +10,7 @@ public class Main {
     NumberArgMenu numberArgMenu =  new NumberArgMenu();
     numberArgMenu.addScanner(scanner);
     numberArgMenu.addPrompt("Entrer le nombre d'argument");
-    numberArgMenu.addFunction(() -> numberArgMenu.GetInt());
+    numberArgMenu.addFunction(() -> numberArgMenu.setValueFromIO());
 
     try {
       numberArgMenu.run();
