@@ -3,8 +3,7 @@ package up.mi.Debat_Chambaz_Cibier_Xu;
 import java.util.ArrayList;
 
 /**
- * An argument is a logical argument and the list of all arguments
- * that it contradicts
+ * An argument is a logical argument and the list of contradiction
  * It represents a single index of an adjacency list
  */
 public class Argument {
@@ -65,8 +64,8 @@ public class Argument {
     return this.id;
   }
   /**
-   * Create  a string from the arguments
-   * @return The string representation of arguments
+   * Create a string from the argument
+   * @return The string representation of argument
    */
   public String toString() {
     return "A" + (this.id + 1);

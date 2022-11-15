@@ -6,19 +6,10 @@ import java.util.ArrayList;
  * Container class for arguments
  * It is modeled after the adjacency list
  */
-public class Arguments {
-  private ArrayList<Argument> arguments;
+public class Debate {
+  protected ArrayList<Argument> arguments;
 
-  /**
-   * Initializes the list of arguments
-   * @param arguments The arguments to create it from
-   * @return Initialized argument
-   */
-  public Arguments(Arguments arguments) {
-    this.arguments = new ArrayList<Argument>();
-    for (int i = 0; i < arguments.getNumberArguments(); i++) {
-      this.arguments.add(null);
-    }
+  protected Debate() {
   }
 
   /**
@@ -26,7 +17,7 @@ public class Arguments {
    * @param n Number of arguments to create the list with
    * @return Initialized argument
    */
-  public Arguments(int n) {
+  public Debate(int n) {
     this.arguments = new ArrayList<Argument>();
     for (int i = 0; i < n; i++) {
       this.arguments.add(new Argument(i));
@@ -120,13 +111,22 @@ public class Arguments {
     return this.arguments.get(id);
   }
 
+  public boolean isEmpty() {
+    for (Argument arg : this.arguments) {
+      if (arg != null) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   /**
    * Create a string from the arguments
    * @return The string representation of the arguments
    */
   public String toString() {
     String out = "";
-    out += "{\n";
+    out += "[\n";
     for (int i = 0; i < this.arguments.size(); i++) {
       Argument argument = this.arguments.get(i);
       if (argument == null) {
@@ -141,7 +141,7 @@ public class Arguments {
       }
       out += "]\n";
     }
-    out += "}\n";
+    out += "]";
     return out;
   }
 }

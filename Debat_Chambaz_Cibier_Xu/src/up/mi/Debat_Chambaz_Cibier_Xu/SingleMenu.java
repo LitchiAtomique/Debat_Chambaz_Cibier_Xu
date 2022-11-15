@@ -14,11 +14,18 @@ public class SingleMenu extends Menu {
     this.scanner = null;
     this.function = null;
   }
-
+/**
+ * Add a function to the Single Menue
+ * To run it when a value is enter by the user
+ * @param function
+ */
   public void addFunction(Runnable function) {
     this.function = function;
   }
-
+/**
+ * run the single menu and the associated function
+ * @throws Exception if scanner or prompt or function is null
+ */
   public void run() throws Exception {
     // error handling
     if (scanner == null)

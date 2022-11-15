@@ -65,7 +65,7 @@ public class IO {
         arg = Util.parseArgIndex(answerStr) - 1;
       } catch (Exception e) {
         System.out.println("Error, could not parse argument"); 
-        System.out.println(e);
+        System.out.println(e.getMessage());
         continue;
       }
 
@@ -76,7 +76,7 @@ public class IO {
    * Queries io for a tab of argument (2 arguments)
    * @param scanner Initialized scanner
    * @param prompt Message to display to io
-   * @return A tab of argument (2arguments)
+   * @return A tab of index of arguments
    */
   public static int[] ioGetArgs(Scanner scanner, String prompt, int size) {
     while (true) {
@@ -115,7 +115,7 @@ public class IO {
         args[0] = Util.parseArgIndex(argsStr[0]) - 1;
       } catch (Exception e) {
         System.out.println("Error, could not parse argument n°1"); 
-        System.out.println(e);
+        System.out.println(e.getMessage());
         continue;
       }
 
@@ -124,7 +124,7 @@ public class IO {
         args[1] = Util.parseArgIndex(argsStr[argsStr.length - 1]) - 1;
       } catch (Exception e) {
         System.out.println("Error, could not parse argument n°2"); 
-        System.out.println(e);
+        System.out.println(e.getMessage());
         continue;
       }
 

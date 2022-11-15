@@ -6,16 +6,16 @@ package up.mi.Debat_Chambaz_Cibier_Xu;
 public class ContradictionChoiceMenu extends ChoiceMenu {
   /**
    * Adds a contradiction
-   * @param arguments The arguments that a contradiction will be added to
+   * @param debate The debate that a contradiction will be added to
    */
-  public void contradictionAdd(Arguments arguments) {
-    int args[] = IO.ioGetArgs(this.scanner, "Enter the two arguments (An Am)", arguments.getNumberArguments());
+  public void contradictionAdd(Debate debate) {
+    int args[] = IO.ioGetArgs(this.scanner, "Enter the two debate (An Am)", debate.getNumberArguments());
     try {
-    	arguments.addContradiction(args[0], new Contradiction(args[1]));
+    	debate.addContradiction(args[0], new Contradiction(args[1]));
     }catch (Exception e) {
         System.out.println(e.getMessage());
         return;
     }
-    System.out.print(arguments);
+    System.out.println(debate);
   }
 }

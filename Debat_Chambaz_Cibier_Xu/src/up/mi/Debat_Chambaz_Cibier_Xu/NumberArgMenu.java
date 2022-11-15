@@ -11,14 +11,17 @@ public class NumberArgMenu extends SingleMenu {
     this.value = 0;
   }
   /**
-   * Gets an int from io
+   * Set Value from IO.ioGetInt function
    */
-  public void GetInt() {
+  public void setValueFromIO() {
     this.value = IO.ioGetInt(
         this.scanner,
         this.prompt);
   }
-
+/**
+ * 
+ * @return the value
+ */
   public int getValue() {
     return this.value;
   }

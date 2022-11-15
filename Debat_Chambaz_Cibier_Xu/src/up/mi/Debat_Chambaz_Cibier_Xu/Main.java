@@ -10,7 +10,7 @@ public class Main {
     NumberArgMenu numberArgMenu =  new NumberArgMenu();
     numberArgMenu.addScanner(scanner);
     numberArgMenu.addPrompt("Enter number of arguments");
-    numberArgMenu.addFunction(() -> numberArgMenu.GetInt());
+    numberArgMenu.addFunction(() -> numberArgMenu.setValueFromIO());
 
     try {
       numberArgMenu.run();
@@ -20,40 +20,41 @@ public class Main {
       return;
     }
     int numberArguments = numberArgMenu.getValue();
-    Arguments arguments = new Arguments(numberArguments);
+    Debate debate = new Debate(numberArguments);
 
-    System.out.print(arguments);
+    System.out.println(debate);
 
     ContradictionChoiceMenu contradictionChoiceMenu = new ContradictionChoiceMenu();
     contradictionChoiceMenu.addScanner(scanner);
     contradictionChoiceMenu.addPrompt("Select a choice");
-    contradictionChoiceMenu.addChoice("Add a contradiction", () -> contradictionChoiceMenu.contradictionAdd(arguments));
+    contradictionChoiceMenu.addChoice("Add a contradiction", () -> contradictionChoiceMenu.contradictionAdd(debate));
     contradictionChoiceMenu.addChoice("End", () -> contradictionChoiceMenu.end());
 
     try {
       contradictionChoiceMenu.run();
     } catch (Exception e) {
-      System.out.println(e);
+      System.out.println(e.getMessage());
       scanner.close();
       return;
     }
 
-    System.out.print(arguments);
+    System.out.println("Debate:");
+    System.out.println(debate);
 
-    Arguments solution = new Arguments(arguments);
+    Solution solution = new Solution(debate);
 
     ArgumentChoiceMenu argumentChoiceMenu = new ArgumentChoiceMenu();
     argumentChoiceMenu.addScanner(scanner);
     argumentChoiceMenu.addPrompt("Select a choice");
-    argumentChoiceMenu.addChoice("Add an argument", () -> argumentChoiceMenu.argumentAdd(arguments, solution));
+    argumentChoiceMenu.addChoice("Add an argument", () -> argumentChoiceMenu.argumentAdd(debate, solution));
     argumentChoiceMenu.addChoice("Remove an argument", () -> argumentChoiceMenu.argumentDel(solution));
-    argumentChoiceMenu.addChoice("Check soltution", () -> argumentChoiceMenu.check(arguments, solution));
+    argumentChoiceMenu.addChoice("Check solution", () -> argumentChoiceMenu.check(debate, solution));
     argumentChoiceMenu.addChoice("End", () -> argumentChoiceMenu.end());
 
     try {
       argumentChoiceMenu.run();
     } catch (Exception e) {
-      System.out.println(e);
+      System.out.println(e.getMessage());
       scanner.close();
       return;
     }
