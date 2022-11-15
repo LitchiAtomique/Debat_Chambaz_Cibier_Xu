@@ -2,8 +2,14 @@ package up.mi.Debat_Chambaz_Cibier_Xu;
 
 import java.util.ArrayList;
 
+/**
+ * Solution class
+ */
 public class Solution extends Debate {
 
+  /**
+   * Initializes the solution from a debate
+   */
   public Solution(Debate debate) {
     this.arguments = new ArrayList<Argument>();
     for (int i = 0; i < debate.getNumberArguments(); i++) {
@@ -11,6 +17,10 @@ public class Solution extends Debate {
     }
   }
 
+  /**
+   * Checks if a debate is admissible or not
+   * @return wether or not the debate is admissible
+   */
   public boolean check(Debate debate) {
     for (Argument arg : this.getArguments()) {
       if (arg == null) continue;
@@ -42,6 +52,11 @@ public class Solution extends Debate {
     return true;
   }
 
+
+  /**
+   * Create a string from the solution
+   * @return The string representation of the solution
+   */
   public String toString() {
     if (this.isEmpty())
       return "[ ]";

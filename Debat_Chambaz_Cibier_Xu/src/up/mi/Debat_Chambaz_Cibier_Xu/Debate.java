@@ -3,7 +3,7 @@ package up.mi.Debat_Chambaz_Cibier_Xu;
 import java.util.ArrayList;
 
 /**
- * Container class for arguments
+ * Container class for the debate
  * It is modeled after the adjacency list
  */
 public class Debate {
@@ -13,9 +13,9 @@ public class Debate {
   }
 
   /**
-   * Initializes the arguments with a number of arguments
-   * @param n Number of arguments to create the list with
-   * @return Initialized argument
+   * Initializes the debate with a number of arguments
+   * @param n Number of arguments to start with
+   * @return Initialized debate
    */
   public Debate(int n) {
     this.arguments = new ArrayList<Argument>();
@@ -121,8 +121,8 @@ public class Debate {
   }
 
   /**
-   * Create a string from the arguments
-   * @return The string representation of the arguments
+   * Create a string from the debate
+   * @return The string representation of the debate
    */
   public String toString() {
     String out = "";
