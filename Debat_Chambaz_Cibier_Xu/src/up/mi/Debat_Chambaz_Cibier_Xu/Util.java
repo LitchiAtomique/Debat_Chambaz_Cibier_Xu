@@ -1,5 +1,11 @@
 package up.mi.Debat_Chambaz_Cibier_Xu;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
+
+import java.util.ArrayList;
+
 /**
  * Collection of helper functions
  */
@@ -71,5 +77,57 @@ public class Util {
       }
     }
     return ret;
+  }
+
+  /**
+   * Removes all whitespace from a string
+   * @param in String to remove whitespace from
+   * @return The string without whitespace
+   */
+  public static String removeWhitespace(String in) {
+    String out = "";
+    for (char c : in.toCharArray()) {
+      if (c != ' ') {
+        out += c;
+      }
+    }
+    return out;
+  }
+
+  /**
+   * Reads the content of a file and populate a string list
+   * @param path The path of the file
+   * @throws Exception file pointed by path cannot be opened or read
+   * @return A table of string containing the lines of the file
+   */
+  public static String[] getLinesFromPath(String path) throws Exception {
+    File file = new File(path);
+    if (!file.exists() || !file.isFile())
+      throw new Exception("File (" + path + ") does not exist");
+
+    BufferedReader bufferedReader = null;
+    try { 
+      bufferedReader = new BufferedReader(new FileReader(path));
+    } catch (Exception e) {
+      throw new Exception("Could to open file (" + path + ")");
+    }
+
+    ArrayList<String> lines = new ArrayList<String>();
+    String line = null;
+    try {
+      while ((line = bufferedReader.readLine()) != null) {
+        lines.add(line);
+      }
+    } catch (Exception e) {
+      bufferedReader.close();
+      throw e;
+    }
+
+    bufferedReader.close();
+    String[] out = new String[lines.size()];
+    for (int i = 0; i < lines.size(); i++) {
+      out[i] = new String(lines.get(i));
+    }
+    return out;
   }
 }
