@@ -59,18 +59,16 @@ public class Solution extends Debate {
    */
   public String toString() {
     if (this.isEmpty())
-      return "[ ]";
+      return "";
     String out = "";
-    out += "[ ";
     for (int i = 0; i < this.arguments.size(); i++) {
       Argument argument = this.arguments.get(i);
       if (argument == null)
         continue;
       out += argument;
-      out += ", ";
+      out += ",";
     }
     out = out.substring(0, out.length() - 2);
-    out += " ]";
     return out;
   }
 }
