@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class Argument {
   int id;
+  String name;
   private ArrayList<Contradiction> contradictions;
 
   /**
@@ -15,8 +16,9 @@ public class Argument {
    * @param id id of the parameter
    * @return The generated argument
    */
-  public Argument(int id) {
+  public Argument(int id, String name) {
     this.id = id;
+    this.name = new String(name);
     this.contradictions = new ArrayList<Contradiction>();
   }
 
@@ -27,6 +29,7 @@ public class Argument {
    */
   public Argument(Argument argument) {
     this.id = argument.getId();
+    this.name = new String(argument.getName());
     this.contradictions = argument.getContradictions();
   }
 
@@ -63,12 +66,20 @@ public class Argument {
   public int getId() {
     return this.id;
   }
+
+  /**
+   * Get the name
+   */
+  public String getName() {
+    return this.name;
+  }
+
   /**
    * Create a string from the argument
    * @return The string representation of argument
    */
   public String toString() {
-    return "A" + (this.id + 1);
+    return "A" + (this.id + 1) + ": \"" + this.name + "\"";
   }
   /**
    * Checks if this argument contradicts with the argument arg.

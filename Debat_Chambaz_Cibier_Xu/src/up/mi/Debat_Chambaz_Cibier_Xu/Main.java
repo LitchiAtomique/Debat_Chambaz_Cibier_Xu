@@ -10,14 +10,15 @@ public class Main {
       System.exit(1);
     }
 
+    Debate debate = null;
     try {
-      GraphReader.readFile(args[0]);
+      debate = GraphReader.readFile(args[0]);
     } catch (Exception e) {
       System.out.println(e.getMessage());
       return;
     }
 
-    System.out.println("done");
+    System.out.println(debate);
 
 //     Scanner scanner = new Scanner(System.in);
 

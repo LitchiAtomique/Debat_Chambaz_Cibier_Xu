@@ -12,7 +12,7 @@ public class ContradictionChoiceMenu extends ChoiceMenu {
     int args[] = IO.ioGetArgs(this.scanner, "Enter the two debate (An Am)", debate.getNumberArguments());
     try {
     	debate.addContradiction(args[0], new Contradiction(args[1]));
-    }catch (Exception e) {
+    } catch (Exception e) {
         System.out.println(e.getMessage());
         return;
     }

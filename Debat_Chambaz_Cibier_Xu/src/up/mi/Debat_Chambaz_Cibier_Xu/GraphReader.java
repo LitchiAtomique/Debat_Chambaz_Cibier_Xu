@@ -10,6 +10,7 @@ public class GraphReader {
    * @throws Exception file could not be read correctly
    */
   public static Debate readFile(String path) throws Exception {
+    Debate debate = new Debate();
     String[] lines;
     try {
       lines = Util.getLinesFromPath(path);
@@ -17,6 +18,7 @@ public class GraphReader {
       throw new Exception("Could not read file: " + path + ".Error: " + e.getMessage());
     }
 
+    int argument_id = 0;
     for (int i = 0; i < lines.length; i++) {
       if (!lineCheck(lines[i])) {
         throw new Exception("Error on line " + (i + 1) + " '" + lines[i] + "': bad format");
@@ -28,7 +30,14 @@ public class GraphReader {
           if (!argCheck(arg)) {
             throw new Exception("Error on line " + (i + 1) + " '" + lines[i] + "': bad argument format");
           }
-          System.out.println("argument: " + arg);
+
+          if (debate.exists(arg)) {
+            throw new Exception("Error on line " + (i + 1) + " '" + lines[i] + ": argument already exists");
+          }
+
+          debate.add(new Argument(argument_id, arg));
+          argument_id++;
+
           break;
         }
         case CONTRADICTION: {
@@ -37,19 +46,21 @@ public class GraphReader {
             if (!argCheck(arg)) {
               throw new Exception("Error on line " + (i + 1) + " '" + lines[i] + "': bad argument format");
             }
+            if (!debate.exists(arg)) {
+              throw new Exception("Error on line " + (i + 1) + " '" + lines[i] + ": argument '" + arg + "' does not exists");
+            }
           }
-          System.out.print("contradiction: [ ");
-          for (int j = 0; j < args.length; j++) {
-            System.out.print(args[j]);
-            if (j < args.length - 1)
-              System.out.print(", ");
+
+          try {
+            debate.addContradiction(debate.getArgumentId(args[0]), new Contradiction(debate.getArgumentId(args[1])));
+          } catch (Exception e) {
+            throw e;
           }
-          System.out.println(" ]");
           break;
         }
       }
     }
-    return null;
+    return debate;
   }
 
   /**

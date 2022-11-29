@@ -9,7 +9,11 @@ import java.util.ArrayList;
 public class Debate {
   protected ArrayList<Argument> arguments;
 
-  protected Debate() {
+  /**
+   * Initializes an empty debate
+   */
+  public Debate() {
+    this.arguments = new ArrayList<Argument>();
   }
 
   /**
@@ -18,9 +22,9 @@ public class Debate {
    * @return Initialized debate
    */
   public Debate(int n) {
-    this.arguments = new ArrayList<Argument>();
+    this();
     for (int i = 0; i < n; i++) {
-      this.arguments.add(new Argument(i));
+      this.arguments.add(new Argument(i, ""));
     }
   }
 
@@ -64,10 +68,14 @@ public class Debate {
    * @param argument Argument to add
    */
   public void add(Argument argument) throws Exception {
-    if (this.arguments.get(argument.getId()) != null) {
+    if (argument.getId() < this.arguments.size() && this.arguments.get(argument.getId()) != null) {
         throw new Exception("Error, argument already present in the solution");
     }
-    this.arguments.set(argument.getId(), argument);
+    if (argument.getId() < this.arguments.size()) {
+      this.arguments.set(argument.getId(), argument);
+    } else {
+      this.arguments.add(argument);
+    }
   }
 
   /**
@@ -109,6 +117,31 @@ public class Debate {
    */
   public Argument getArgument(int id) {
     return this.arguments.get(id);
+  }
+
+  /**
+   * Returns if an argument exists by name
+   */
+  public boolean exists(String name) {
+    for (Argument arg : arguments) {
+      if (arg.getName().equals(name)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Return id of first argument with name
+   * @param name The name of the argument
+   */
+  public int getArgumentId(String name) {
+    for (Argument arg : arguments) {
+      if (arg.getName().equals(name)) {
+        return arg.getId();
+      }
+    }
+    return -1;
   }
 
   public boolean isEmpty() {
