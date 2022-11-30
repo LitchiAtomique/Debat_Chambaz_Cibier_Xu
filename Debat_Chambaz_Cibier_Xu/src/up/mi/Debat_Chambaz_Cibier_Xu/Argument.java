@@ -79,7 +79,7 @@ public class Argument {
    * @return The string representation of argument
    */
   public String toString() {
-    return "A" + (this.id + 1) + ": \"" + this.name + "\"";
+    return this.name;
   }
   /**
    * Checks if this argument contradicts with the argument arg.

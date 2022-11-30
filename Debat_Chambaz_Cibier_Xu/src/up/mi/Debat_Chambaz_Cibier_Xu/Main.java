@@ -31,17 +31,24 @@ public class Main {
 
     // first we cheat a little bit since we will calculate all the solution now, this will allow for control over what is being displayed to the user
     // this operation is fast so it does not cost much - that being said, if it were not the case we could increase an arraylist and search at user time for solutions
-    // Solution[] admissibleSolution = 
+    Solution[] admissibleSolutions = SolutionSearcher.getAdmissible(debate);
+    Solution[] preferredSolutions = SolutionSearcher.getPreferred(admissibleSolutions);
+
+    SolutionIndex admissibleSolutionIndex = new SolutionIndex();
+    SolutionIndex preferredSolutionIndex = new SolutionIndex();
+    SolutionMenuSelectionWrapper solutionMenuSelection = new SolutionMenuSelectionWrapper();
 
     Scanner scanner = new Scanner(System.in);
+
+    boolean lastSelectedAdmissible = false;
 
     // creation of the menu for the user
     SolutionMenu solutionMenu = new SolutionMenu();
     solutionMenu.addScanner(scanner);
     solutionMenu.addPrompt("Select a choice");
-    solutionMenu.addChoice("Search for an admissible solution", () -> solutionMenu.searchAdmissibleSolution(debate));
-    solutionMenu.addChoice("Search for a preferred solution", () -> solutionMenu.searchPreferredSolution(debate));
-    solutionMenu.addChoice("Save solution", () -> solutionMenu.saveSolution(debate));
+    solutionMenu.addChoice("Search for an admissible solution", () -> solutionMenu.searchAdmissibleSolution(admissibleSolutions, admissibleSolutionIndex, solutionMenuSelection));
+    solutionMenu.addChoice("Search for a preferred solution", () -> solutionMenu.searchPreferredSolution(preferredSolutions, preferredSolutionIndex, solutionMenuSelection));
+    solutionMenu.addChoice("Save solution", () -> solutionMenu.saveSolution(admissibleSolutions, admissibleSolutionIndex, preferredSolutions, preferredSolutionIndex, solutionMenuSelection));
     solutionMenu.addChoice("End", () -> solutionMenu.end());
 
     // the menu is running
@@ -112,5 +119,4 @@ public class Main {
 
     scanner.close();
   }
-
 }

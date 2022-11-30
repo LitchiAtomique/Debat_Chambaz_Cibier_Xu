@@ -165,7 +165,9 @@ public class Debate {
       if (argument == null) {
         continue;
       }
-      out += "  " + argument + ": [";
+      out += "  ";
+      out += "A" + (i + 1) + " - ";
+      out += "\"" + argument + "\"" + ": [";
       for (int j = 0; j < argument.getNumberContradictions(); j++) {
         out += argument.getContradiction(j);
         if (j < argument.getNumberContradictions() - 1) {
