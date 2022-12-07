@@ -39,7 +39,9 @@ public class SolutionMenu extends ChoiceMenu {
       }
       toSave = preferredSolutions[preferredSolutionIndex.getIndex()];
     }
+    System.out.println("Saving to disk");
     System.out.println("[ " + toSave + " ]");
+    Util.saveStringToFile(toSave.toString(), "data/save.txt");
     // TODO - save to a file given by user
   }
 }

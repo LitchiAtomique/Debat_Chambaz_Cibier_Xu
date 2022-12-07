@@ -3,6 +3,7 @@ package up.mi.Debat_Chambaz_Cibier_Xu;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.FileWriter;
 
 import java.util.ArrayList;
 
@@ -130,4 +131,16 @@ public class Util {
     }
     return out;
   }
+  
+  public static void saveStringToFile(String content, String path) {
+	FileWriter writer;
+	try {
+		writer = new FileWriter(path);
+		writer.write(content);
+		writer.close();
+	} catch (Exception e) {
+		System.out.println(e.getMessage());
+	}
+  }
 }
+
