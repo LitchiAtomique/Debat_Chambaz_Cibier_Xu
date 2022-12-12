@@ -29,18 +29,18 @@ public class Main {
     System.out.println("Loaded debate");
     System.out.println(debate);
 
-    // first we cheat a little bit since we will calculate all the solution now, this will allow for control over what is being displayed to the user
-    // this operation is fast so it does not cost much - that being said, if it were not the case we could increase an arraylist and search at user time for solutions
+    // first we cheat a little bit since we will calculate all the solution now,
+    //this will allow for control over what is being displayed to the user
+    // this operation is fast so it does not cost much - that being said,
+    //if it were not the case we could increase an arraylist and search at user time for solutions
     Solution[] admissibleSolutions = SolutionSearcher.getAdmissible(debate);
     Solution[] preferredSolutions = SolutionSearcher.getPreferred(admissibleSolutions);
-
+    
     SolutionIndex admissibleSolutionIndex = new SolutionIndex();
     SolutionIndex preferredSolutionIndex = new SolutionIndex();
     SolutionMenuSelectionWrapper solutionMenuSelection = new SolutionMenuSelectionWrapper();
 
     Scanner scanner = new Scanner(System.in);
-
-    boolean lastSelectedAdmissible = false;
 
     // creation of the menu for the user
     SolutionMenu solutionMenu = new SolutionMenu();
