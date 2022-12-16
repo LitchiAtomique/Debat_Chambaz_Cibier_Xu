@@ -18,6 +18,7 @@ public class SolutionSearcher {
         admissibleSolutions.add(solution);
       }
     }
+    
 
     // copy value to return a fixed size table
     out = new Solution[admissibleSolutions.size()];
