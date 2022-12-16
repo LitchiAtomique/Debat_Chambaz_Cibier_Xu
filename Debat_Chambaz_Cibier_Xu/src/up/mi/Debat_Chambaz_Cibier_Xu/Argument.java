@@ -21,6 +21,8 @@ public class Argument {
     this.name = new String(name);
     this.contradictions = new ArrayList<Contradiction>();
   }
+  public Argument() {
+}
 
   /**
    * Initalizes an argument from an already existing one

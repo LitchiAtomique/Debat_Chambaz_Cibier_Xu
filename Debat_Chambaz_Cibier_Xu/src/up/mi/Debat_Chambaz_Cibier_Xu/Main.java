@@ -16,14 +16,14 @@ public class Main {
     }
 
     // done since this variable cannot be final for lambda expression since it would be out of scope
-    Debate try_debate = null;
+    Debate tryDebate = null;
     try {
-      try_debate = GraphReader.readFile(args[0]);
+    	tryDebate = GraphReader.readFile(args[0]);
     } catch (Exception e) {
       System.out.println(e.getMessage());
       return;
     }
-    Debate debate = try_debate;
+    Debate debate = tryDebate;
 
     // print the debate graph to the user
     System.out.println("Loaded debate");

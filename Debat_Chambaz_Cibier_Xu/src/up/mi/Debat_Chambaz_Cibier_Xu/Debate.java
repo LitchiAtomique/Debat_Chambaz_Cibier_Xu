@@ -124,6 +124,9 @@ public class Debate {
    */
   public boolean exists(String name) {
     for (Argument arg : arguments) {
+    	if(arg == null) {
+    		continue;
+    	}
       if (arg.getName().equals(name)) {
         return true;
       }
